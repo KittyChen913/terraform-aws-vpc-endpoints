@@ -27,3 +27,21 @@ ssh -o "ProxyCommand=ssh -i ~/.ssh/terraform-ec2 -W %h:%p ec2-user@${aws_instanc
 EOT
   description = "使用 ProxyCommand 連接到 private instance 的 SSH 命令"
 }
+
+# Output：輸出 S3 VPC Endpoint ID
+output "s3_vpc_endpoint_id" {
+  value       = aws_vpc_endpoint.s3.id
+  description = "S3 VPC Endpoint ID"
+}
+
+# Output：輸出 S3 VPC Endpoint Service Name
+output "s3_vpc_endpoint_service_name" {
+  value       = aws_vpc_endpoint.s3.service_name
+  description = "S3 VPC Endpoint Service Name"
+}
+
+# Output：輸出 IAM Role ARN
+output "ec2_iam_role_arn" {
+  value       = aws_iam_role.ec2_s3_full_access.arn
+  description = "EC2 IAM Role ARN with S3 full access"
+}

@@ -37,7 +37,7 @@ resource "aws_subnet" "private_subnet" {
 }
 
 # ============================================================================
-# Internet Gateway and NAT Gateway
+# Internet Gateway
 # ============================================================================
 
 # Internet Gateway：提供 public subnet 連接到網際網路
