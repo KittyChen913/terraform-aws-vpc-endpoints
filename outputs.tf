@@ -40,6 +40,36 @@ output "s3_vpc_endpoint_service_name" {
   description = "S3 Gateway Endpoint Service Name"
 }
 
+# Output：輸出 VPC ID
+output "vpc_id" {
+  value       = aws_vpc.main_vpc.id
+  description = "Main VPC ID"
+}
+
+# Output：輸出 Public Subnet ID
+output "public_subnet_id" {
+  value       = aws_subnet.public_subnet.id
+  description = "Public Subnet ID"
+}
+
+# Output：輸出 Private Subnet ID
+output "private_subnet_id" {
+  value       = aws_subnet.private_subnet.id
+  description = "Private Subnet ID"
+}
+
+# Output：輸出 Lambda VPC Endpoint ID
+output "lambda_vpc_endpoint_id" {
+  value       = aws_vpc_endpoint.lambda_interface.id
+  description = "Lambda Interface Endpoint ID"
+}
+
+# Output：輸出 VPC Endpoint Security Group ID
+output "vpc_endpoint_sg_id" {
+  value       = aws_security_group.vpc_endpoint.id
+  description = "VPC Endpoint Security Group ID"
+}
+
 # Output：輸出 IAM Role ARN
 output "ec2_iam_role_arn" {
   value       = aws_iam_role.ec2_s3_full_access.arn
