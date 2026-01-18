@@ -3,7 +3,7 @@
 # ============================================================================
 
 # VPC Gateway Endpoint for S3
-resource "aws_vpc_endpoint" "s3" {
+resource "aws_vpc_endpoint" "s3_gateway" {
   vpc_id       = aws_vpc.main_vpc.id
   service_name = "com.amazonaws.${var.aws_region}.s3"
 
@@ -12,7 +12,7 @@ resource "aws_vpc_endpoint" "s3" {
   ]
 
   tags = {
-    Name = "s3-vpc-endpoint"
+    Name = "s3-gateway-endpoint"
   }
 }
 
@@ -21,8 +21,8 @@ resource "aws_vpc_endpoint" "s3" {
 # ============================================================================
 
 # VPC Endpoint Policy：允許所有 S3 訪問
-resource "aws_vpc_endpoint_policy" "s3" {
-  vpc_endpoint_id = aws_vpc_endpoint.s3.id
+resource "aws_vpc_endpoint_policy" "s3_gateway" {
+  vpc_endpoint_id = aws_vpc_endpoint.s3_gateway.id
 
   policy = jsonencode({
     Version = "2012-10-17"
@@ -76,7 +76,7 @@ resource "aws_security_group" "vpc_endpoint" {
 }
 
 # VPC Interface Endpoint：用於 Lambda
-resource "aws_vpc_endpoint" "lambda" {
+resource "aws_vpc_endpoint" "lambda_interface" {
   vpc_id              = aws_vpc.main_vpc.id
   service_name        = "com.amazonaws.${var.aws_region}.lambda"
   vpc_endpoint_type   = "Interface"
@@ -91,7 +91,7 @@ resource "aws_vpc_endpoint" "lambda" {
   ]
 
   tags = {
-    Name = "lambda-vpc-endpoint"
+    Name = "lambda-interface-endpoint"
   }
 }
 
@@ -100,8 +100,8 @@ resource "aws_vpc_endpoint" "lambda" {
 # ============================================================================
 
 # VPC Endpoint Policy：允許所有 Lambda 訪問
-resource "aws_vpc_endpoint_policy" "lambda" {
-  vpc_endpoint_id = aws_vpc_endpoint.lambda.id
+resource "aws_vpc_endpoint_policy" "lambda_interface" {
+  vpc_endpoint_id = aws_vpc_endpoint.lambda_interface.id
 
   policy = jsonencode({
     Version = "2012-10-17"

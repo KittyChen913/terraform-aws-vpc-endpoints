@@ -30,14 +30,14 @@ EOT
 
 # Output：輸出 S3 VPC Endpoint ID
 output "s3_vpc_endpoint_id" {
-  value       = aws_vpc_endpoint.s3.id
-  description = "S3 VPC Endpoint ID"
+  value       = aws_vpc_endpoint.s3_gateway.id
+  description = "S3 Gateway Endpoint ID"
 }
 
 # Output：輸出 S3 VPC Endpoint Service Name
 output "s3_vpc_endpoint_service_name" {
-  value       = aws_vpc_endpoint.s3.service_name
-  description = "S3 VPC Endpoint Service Name"
+  value       = aws_vpc_endpoint.s3_gateway.service_name
+  description = "S3 Gateway Endpoint Service Name"
 }
 
 # Output：輸出 IAM Role ARN
