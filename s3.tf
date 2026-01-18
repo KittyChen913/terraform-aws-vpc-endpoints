@@ -3,7 +3,8 @@
 # ============================================================================
 
 resource "aws_s3_bucket" "private_bucket" {
-  bucket = "my-private-ec2-bucket-${data.aws_caller_identity.current.account_id}"
+  bucket        = "my-private-ec2-bucket-${data.aws_caller_identity.current.account_id}"
+  force_destroy = true
 
   tags = {
     Name        = "private-ec2-bucket"
