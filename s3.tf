@@ -55,6 +55,12 @@ resource "aws_s3_bucket_policy" "private_bucket" {
           StringNotEquals = {
             "aws:SourceVpce" = aws_vpc_endpoint.s3_gateway.id
           }
+          ArnNotEquals = {
+            "aws:PrincipalArn" = [
+              "arn:aws:iam::${data.aws_caller_identity.current.account_id}:user/${var.aws_profile}",
+              "arn:aws:sts::${data.aws_caller_identity.current.account_id}:assumed-role/*"
+            ]
+          }
         }
       }
     ]
