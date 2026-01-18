@@ -75,3 +75,15 @@ output "ec2_iam_role_arn" {
   value       = aws_iam_role.ec2_s3_full_access.arn
   description = "EC2 IAM Role ARN with S3 full access"
 }
+
+# Output：輸出 S3 Bucket 名稱
+output "s3_bucket_name" {
+  value       = aws_s3_bucket.private_bucket.id
+  description = "Private S3 Bucket 名稱"
+}
+
+# Output：輸出 S3 Bucket ARN
+output "s3_bucket_arn" {
+  value       = aws_s3_bucket.private_bucket.arn
+  description = "Private S3 Bucket ARN"
+}
