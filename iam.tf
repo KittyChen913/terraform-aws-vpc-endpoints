@@ -30,6 +30,12 @@ resource "aws_iam_role_policy_attachment" "s3_full_access" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
 }
 
+# 將 AWS 現有的 AWSLambda_FullAccess Policy 附加到 IAM Role
+resource "aws_iam_role_policy_attachment" "lambda_full_access" {
+  role       = aws_iam_role.ec2_s3_full_access.name
+  policy_arn = "arn:aws:iam::aws:policy/AWSLambda_FullAccess"
+}
+
 # Instance Profile：連接 IAM Role 到 EC2 Instance
 resource "aws_iam_instance_profile" "ec2_profile" {
   name = "ec2-s3-full-access-profile"
