@@ -22,12 +22,6 @@ variable "public_key_path" {
   default     = "~/.ssh/terraform-ec2.pub"
 }
 
-variable "security_group_name" {
-  description = "Security Group 名稱"
-  type        = string
-  default     = "main-sg"
-}
-
 variable "security_group_description" {
   description = "Security Group 描述"
   type        = string
