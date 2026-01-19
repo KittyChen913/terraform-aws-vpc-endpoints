@@ -58,8 +58,7 @@ ssh-keygen -t ed25519 -f ~/.ssh/terraform-ec2
 
 4. **測試連線**
    
-   部署完成後會 output 以下連線字串，可直接複製使用：
-   <br>
+   > **💡 提示：** 部署完成後會 output 以下連線字串，可直接複製使用
    
    連接 Public EC2：
    ```bash
@@ -79,17 +78,21 @@ ssh-keygen -t ed25519 -f ~/.ssh/terraform-ec2
 ## 檔案結構
 
 ```
-├── data.tf              # 集中管理所有 data sources
-├── providers.tf         # Terraform 和 AWS provider 配置
-├── variables.tf         # 變數定義
-├── terraform.tfvars.example  # 變數值範例
-├── network.tf           # VPC、Subnet、Route Table 配置
-├── security.tf          # Key Pair 和 Security Group
-├── compute.tf           # EC2 實例配置
-├── iam.tf              # IAM Role 和 Instance Profile
-├── vpc-endpoints.tf    # VPC Endpoints 配置
-├── s3.tf               # S3 Bucket 和相關安全設定
-└── outputs.tf          # 輸出值定義
+📁 terraform-aws-vpc-endpoints/
+├── 📄 data.tf                    # 集中管理所有 data sources
+├── 📄 providers.tf               # Terraform 和 AWS provider 配置
+├── 📄 variables.tf               # 變數定義
+├── 📄 terraform.tfvars.example   # 變數值範例
+├── 📄 network.tf                 # VPC、Subnet、Route Table 配置
+├── 📄 security.tf                # Key Pair 和 Security Group
+├── 📄 compute.tf                 # EC2 實例配置
+├── 📄 iam.tf                     # IAM Role 和 Instance Profile
+├── 📄 vpc-endpoints.tf           # VPC Endpoints 配置
+├── 📄 s3.tf                      # S3 Bucket 和相關安全設定
+├── 📄 outputs.tf                 # 輸出值定義
+├── 📄 .gitignore                 # Git 忽略文件配置
+├── 📄 README.md                  # 專案說明文件
+└── 📁 docs/                      # 架構圖文件
 ```
 
 ## ⚠️ 注意事項
