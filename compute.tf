@@ -12,7 +12,7 @@ resource "aws_instance" "public" {
   iam_instance_profile   = aws_iam_instance_profile.ec2_profile.name
 
   tags = {
-    Name = "my-public-instance"
+    Name = "public-ec2-bastion"
   }
 }
 
@@ -26,6 +26,6 @@ resource "aws_instance" "private" {
   iam_instance_profile   = aws_iam_instance_profile.ec2_profile.name
 
   tags = {
-    Name = "my-private-instance"
+    Name = "private-ec2"
   }
 }

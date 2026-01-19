@@ -20,7 +20,7 @@ resource "aws_vpc_endpoint" "s3_gateway" {
 # VPC Endpoint Policy for S3
 # ============================================================================
 
-# VPC Endpoint Policy：允許所有 S3 訪問
+# VPC Endpoint Policy：限制 S3 訪問範圍
 resource "aws_vpc_endpoint_policy" "s3_gateway" {
   vpc_endpoint_id = aws_vpc_endpoint.s3_gateway.id
 

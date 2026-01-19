@@ -10,7 +10,7 @@ resource "aws_key_pair" "my_key" {
 
 # Security Group：只開放 SSH
 resource "aws_security_group" "main" {
-  name        = var.security_group_name
+  name        = "ec2-sg"
   description = var.security_group_description
   vpc_id      = aws_vpc.main_vpc.id
 
@@ -26,5 +26,9 @@ resource "aws_security_group" "main" {
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "ec2-sg"
   }
 }
