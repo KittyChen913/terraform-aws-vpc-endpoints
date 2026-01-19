@@ -7,13 +7,9 @@ resource "aws_s3_bucket" "private_bucket" {
   force_destroy = true
 
   tags = {
-    Name        = "private-ec2-bucket"
-    Environment = "dev"
+    Name = "private-ec2-bucket"
   }
 }
-
-# 取得當前 AWS Account ID
-data "aws_caller_identity" "current" {}
 
 # ============================================================================
 # S3 Bucket Public Access Block
